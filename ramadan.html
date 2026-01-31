@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramadan Mubarak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .moon {
+      font-size: 60px;
+      margin-bottom: 10px;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ffd369; }
+      to { text-shadow: 0 0 25px #ffd369; }
+    }
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #ffd369;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.6;
+      opacity: 0.9;
+      margin-bottom: 25px;
+    }
+
+    .family {
+      font-weight: 600;
+      color: #ffd369;
+    }
+
+    footer {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 25px;
+      border-radius: 30px;
+      background: #ffd369;
+      color: #203a43;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #ffb703;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="moon">🌙</div>
+    <h1>Ramadan Mubarak</h1>
+    <h2>To Zzzhr lhjrrrrr</h2>
+    <p>
+        jmmmmmmm sbbbbb33333 testaaaaaheeeel <br>
+      <span class="family">May this blessed month bring <br>health, mercy, and happiness</span> <br>
+      to our hearts and home.
+    </p>
+    <p>
+      May Allah accept our fasting, prayers, and good deeds 🤍
+    </p>
+    <a href="#" class="btn">With Love</a>
+    <footer>
+      — From yaavuu 🤍
+    </footer>
+  </div>
+  <script>
+    // Typing effect for the subtitle
+    const text = "💤To the dear zzzhrr lhjjr 💤";
+    let index = 0;
+    const subtitle = document.querySelector('h2');
+    subtitle.textContent = "";
+
+    function typeEffect() {
+      if (index < text.length) {
+        subtitle.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeEffect, 80);
+      }
+    }
+    typeEffect();
+
+    // Change message on button click
+    const btn = document.querySelector('.btn');
+    const message = document.querySelectorAll('p')[1];
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      message.innerHTML = "May Allah fill our days with light, unity, and baraka 🤲✨";
+      btn.textContent = "Ameen 🤍";
+    });
+
+    // Floating moon animation
+    const moon = document.querySelector('.moon');
+    let pos = 0;
+    let direction = 1;
+
+    setInterval(() => {
+      if (pos > 10 || pos < -10) direction *= -1;
+      pos += direction * 0.5;
+      moon.style.transform = `translateY(${pos}px)`;
+    }, 50);
+  </script>
+</body>
+</html>
